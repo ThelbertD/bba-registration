@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Save Your Seat — The Hormone Fix | Better Body Academy</title>
+<meta name="description" content="Free live training for women 35-60: the 3-pillar BBA system to balance your hormones, stop the slow weight gain, and get your energy back. Limited seats.">
+<meta property="og:title" content="The Hormone Fix — Free Training for Women 35+">
+<meta property="og:description" content="Why your body changed after 35 and the exact 3-pillar BBA system that works in this stage of life. Free live class.">
+<link rel="icon" type="image/png" href="img/bba-badge.png">
+<link rel="apple-touch-icon" href="img/bba-badge.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --bg-deep:#050505;
+    --ink:#FFFFFF;
+    --muted:rgba(255,255,255,0.68);
+    --subtle:rgba(255,255,255,0.5);
+    --pink:#F58FA8;
+    --pink-glow:#FFB6CE;
+    --pink-soft:rgba(245,143,168,0.14);
+    --line:rgba(255,255,255,0.1);
+    --line-strong:rgba(255,255,255,0.2);
+    --success:#22C55E;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,143,168,0.32), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 90% 100%, rgba(255,182,206,0.18), transparent 60%),
+      radial-gradient(ellipse 40% 35% at 5% 50%, rgba(245,143,168,0.08), transparent 60%);
+  }
+
+  .alert-bar{
+    position:relative;z-index:2;
+    background:linear-gradient(90deg, var(--pink), var(--pink-glow));
+    color:#000;text-align:center;padding:10px 20px;
+    font-size:13px;font-weight:700;letter-spacing:0.02em;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .alert-bar .live-dot{
+    width:8px;height:8px;border-radius:50%;background:#000;
+    animation:pulse 2s infinite;box-shadow:0 0 12px rgba(0,0,0,0.6);
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+  nav.top{
+    position:relative;z-index:2;max-width:1280px;margin:0 auto;
+    padding:22px 32px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo img{height:32px;width:auto;display:block;filter:drop-shadow(0 4px 14px rgba(245,143,168,0.3))}
+  nav.top .trust{font-size:12px;color:var(--muted);font-weight:500}
+
+  main{position:relative;z-index:1}
+  .hero{
+    max-width:1280px;margin:0 auto;padding:40px 32px 60px;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+    background:rgba(245,143,168,0.12);border:1px solid rgba(245,143,168,0.35);
+    color:var(--pink);font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:pulse 2s infinite}
+  h1{font-weight:800;font-size:clamp(34px, 4.6vw, 56px);line-height:1.05;letter-spacing:-0.03em;margin:0 0 20px}
+  h1 .highlight{color:var(--pink)}
+  h1 .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#fff}
+  .hero-sub{font-size:18px;color:var(--muted);max-width:560px;margin:0 0 28px;line-height:1.55}
+  .hero-sub strong{color:#fff;font-weight:600}
+
+  .bullet-row{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+  .bullet{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--muted);line-height:1.45}
+  .bullet-check{
+    flex-shrink:0;width:22px;height:22px;border-radius:50%;
+    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    display:inline-flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 12px -4px rgba(245,143,168,0.5);margin-top:2px;
+  }
+  .bullet-check svg{width:12px;height:12px;color:#000}
+  .bullet strong{color:#fff;font-weight:600}
+
+  .form-card{
+    background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:24px;padding:32px;
+    backdrop-filter:blur(16px) saturate(140%);position:relative;
+    box-shadow:0 30px 80px -20px rgba(245,143,168,0.3);
+  }
+  .form-card::before{
+    content:'';position:absolute;inset:0;border-radius:24px;padding:1px;
+    background:linear-gradient(135deg, rgba(255,182,206,0.45), transparent 40%, rgba(245,143,168,0.3));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+  }
+  .form-card-title{font-weight:800;font-size:22px;letter-spacing:-0.02em;margin:0 0 6px;line-height:1.2}
+  .form-card-sub{font-size:14px;color:var(--muted);margin:0 0 20px;line-height:1.5}
+  .form-row{margin-bottom:14px}
+  .form-row.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .form-row label{
+    display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
+    color:var(--subtle);margin-bottom:7px;
+  }
+  .form-row input{
+    width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);
+    border:1px solid var(--line-strong);border-radius:12px;
+    color:#fff;font-size:15px;font-family:'Inter',sans-serif;font-weight:500;
+    transition:all 0.25s;
+  }
+  .form-row input::placeholder{color:rgba(255,255,255,0.35)}
+  .form-row input:focus{
+    outline:none;border-color:var(--pink);background:rgba(255,255,255,0.08);
+    box-shadow:0 0 0 4px rgba(245,143,168,0.15);
+  }
+  .consent-row{
+    display:flex;align-items:flex-start;gap:10px;margin:6px 0 16px;
+    font-size:12px;color:var(--muted);line-height:1.5;
+  }
+  .consent-row input{
+    width:18px;height:18px;flex-shrink:0;margin-top:2px;
+    accent-color:var(--pink);cursor:pointer;
+  }
+  .form-cta{
+    width:100%;padding:18px 24px;
+    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    color:#000;border:0;border-radius:14px;
+    font-family:'Inter',sans-serif;font-weight:800;font-size:16px;letter-spacing:0.01em;cursor:pointer;
+    box-shadow:0 12px 32px -8px rgba(245,143,168,0.55);
+    transition:all 0.25s;margin-top:8px;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .form-cta:hover{transform:translateY(-2px);box-shadow:0 16px 40px -8px rgba(245,143,168,0.75)}
+  .form-cta:active{transform:translateY(0)}
+  .form-cta .arrow{transition:transform 0.25s}
+  .form-cta:hover .arrow{transform:translateX(4px)}
+  .form-meta{
+    margin-top:18px;display:flex;align-items:center;justify-content:center;gap:14px;
+    font-size:11px;color:var(--subtle);flex-wrap:wrap;
+  }
+  .form-meta-item{display:flex;align-items:center;gap:6px}
+  .form-meta-item svg{width:12px;height:12px;color:var(--pink)}
+  .form-success{display:none;text-align:center;padding:30px 10px}
+  .form-success.show{display:block}
+  .form-success-check{
+    width:72px;height:72px;border-radius:50%;margin:0 auto 18px;
+    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 32px -8px rgba(245,143,168,0.55);
+  }
+  .form-success-check svg{width:36px;height:36px;color:#000}
+  .form-success h3{font-size:24px;font-weight:800;letter-spacing:-0.02em;margin:0 0 8px}
+  .form-success p{color:var(--muted);font-size:15px;margin:0 0 16px;line-height:1.55}
+
+  .trust-strip{
+    max-width:1280px;margin:0 auto;padding:0 32px 80px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .trust-item{text-align:center;padding:24px 16px;border-right:1px solid var(--line)}
+  .trust-item:last-child{border-right:0}
+  .trust-num{
+    font-size:clamp(32px, 4vw, 48px);font-weight:800;letter-spacing:-0.03em;
+    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    line-height:1;margin-bottom:8px;
+  }
+  .trust-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+
+  .image-gallery{
+    max-width:1280px;margin:0 auto;padding:0 32px 80px;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:16px;
+  }
+  .image-gallery .gallery-item{
+    border-radius:16px;overflow:hidden;
+    background:#000;border:1px solid var(--line);
+    position:relative;transition:all 0.3s;
+  }
+  .image-gallery .gallery-item:hover{
+    transform:translateY(-3px);border-color:rgba(245,143,168,0.4);
+    box-shadow:0 16px 40px -12px rgba(245,143,168,0.35);
+  }
+  .image-gallery .gallery-item img{
+    width:100%;height:auto;display:block;
+  }
+  .image-gallery .gallery-placeholder{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg, rgba(245,143,168,0.08), rgba(255,182,206,0.04));
+    color:var(--subtle);font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:600;
+  }
+  @media (max-width:900px){
+    .image-gallery{grid-template-columns:repeat(2,1fr);padding:0 20px 60px}
+  }
+  @media (max-width:500px){
+    .image-gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+  }
+
+  section{padding:80px 32px;position:relative}
+  .section-inner{max-width:1280px;margin:0 auto}
+  .section-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--pink);margin-bottom:14px;
+  }
+  .section-eyebrow::before{content:'';width:24px;height:1px;background:var(--pink)}
+  h2{font-weight:800;font-size:clamp(28px, 3.8vw, 44px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 16px}
+  h2 .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--pink)}
+  .section-sub{font-size:17px;color:var(--muted);max-width:680px;margin:0 0 48px;line-height:1.55}
+
+  .learn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .learn-card{
+    background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:20px;
+    padding:32px 28px;transition:all 0.3s;
+  }
+  .learn-card:hover{transform:translateY(-4px);border-color:rgba(245,143,168,0.4);box-shadow:0 20px 60px -20px rgba(245,143,168,0.45)}
+  .learn-num{
+    display:inline-flex;width:48px;height:48px;border-radius:14px;
+    background:linear-gradient(135deg, rgba(245,143,168,0.2), rgba(255,182,206,0.2));
+    border:1px solid rgba(245,143,168,0.35);
+    align-items:center;justify-content:center;
+    font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--pink);
+    margin-bottom:20px;
+  }
+  .learn-card h3{font-size:20px;font-weight:700;letter-spacing:-0.01em;margin:0 0 10px;line-height:1.25}
+  .learn-card p{font-size:14.5px;color:var(--muted);margin:0;line-height:1.6}
+
+  .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+  @media (min-width:1100px){.testimonial-grid{grid-template-columns:repeat(3,1fr)}}
+  .testimonial-card{
+    background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:20px;
+    overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column;
+  }
+  .testimonial-card:hover{
+    transform:translateY(-4px);border-color:rgba(245,143,168,0.4);
+    box-shadow:0 20px 60px -20px rgba(245,143,168,0.45);
+  }
+  .testimonial-video{
+    position:relative;aspect-ratio:1/1;background:#000;overflow:hidden;
+  }
+  .testimonial-video video,.testimonial-video iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+  }
+  .testimonial-video .video-placeholder{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:linear-gradient(135deg, rgba(245,143,168,0.12), rgba(255,182,206,0.06));
+    color:var(--muted);gap:14px;text-align:center;padding:24px;
+  }
+  .testimonial-video .play-icon{
+    width:64px;height:64px;border-radius:50%;
+    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 32px -8px rgba(245,143,168,0.55);
+  }
+  .testimonial-video .play-icon svg{width:24px;height:24px;color:#000;margin-left:3px}
+  .testimonial-video .placeholder-label{
+    font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--subtle);
+  }
+  .testimonial-body{padding:22px 24px 24px}
+  .testimonial-name{font-size:16px;font-weight:700;letter-spacing:-0.01em;margin:0 0 4px;color:#fff}
+  .testimonial-meta{font-size:12px;color:var(--pink);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin:0}
+  @media (max-width:900px){
+    .testimonial-grid{grid-template-columns:1fr;gap:16px}
+  }
+
+  .final-cta{
+    background:linear-gradient(135deg, var(--pink) 0%, var(--pink-glow) 100%);
+    border-radius:32px;padding:64px 48px;text-align:center;position:relative;overflow:hidden;
+  }
+  .final-cta::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.22), transparent 50%);
+    pointer-events:none;
+  }
+  .final-cta h2{color:#000;margin-bottom:18px}
+  .final-cta h2 .serif{color:rgba(0,0,0,0.7)}
+  .final-cta p{color:rgba(0,0,0,0.78);font-size:17px;max-width:540px;margin:0 auto 30px;line-height:1.55}
+  .final-btn{
+    display:inline-flex;align-items:center;gap:10px;padding:18px 36px;border-radius:14px;
+    background:#000;color:var(--pink);font-weight:800;font-size:16px;text-decoration:none;letter-spacing:0.01em;
+    transition:all 0.25s;box-shadow:0 12px 40px -8px rgba(0,0,0,0.4);
+  }
+  .final-btn:hover{transform:translateY(-2px);box-shadow:0 16px 50px -8px rgba(0,0,0,0.55)}
+
+  footer{padding:48px 32px 64px;text-align:center;border-top:1px solid var(--line);background:var(--bg-deep)}
+  .footer-inner{max-width:880px;margin:0 auto}
+  .footer-disclaimer{font-size:11.5px;color:var(--subtle);line-height:1.6;margin-bottom:24px}
+  .footer-disclaimer strong{color:rgba(255,255,255,0.75)}
+  .footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-bottom:18px}
+  .footer-links a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+  .footer-links a:hover{color:var(--pink)}
+  .copyright{font-size:11.5px;color:var(--subtle);letter-spacing:0.02em}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;padding:24px 20px 60px;gap:40px}
+    .hero h1{font-size:36px}
+    .trust-strip{padding:0 20px 60px;grid-template-columns:repeat(2,1fr);gap:0}
+    .trust-item{border-right:0;border-bottom:1px solid var(--line);padding:20px}
+    .trust-item:nth-child(odd){border-right:1px solid var(--line)}
+    .trust-item:nth-last-child(-n+2){border-bottom:0}
+    section{padding:60px 20px}
+    .learn-grid{grid-template-columns:1fr}
+    nav.top{padding:16px 20px}
+    .final-cta{padding:48px 28px}
+  }
+  @media (max-width:500px){
+    .alert-bar{font-size:11.5px;padding:9px 16px}
+    .form-card{padding:24px 20px}
+    .hero h1{font-size:32px}
+    .form-row.split{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="alert-bar">
+  <span class="live-dot"></span>
+  <span>Free live training for women 35+. Date: <strong id="alertBarDate">To Be Announced</strong>. Seats limited.</span>
+</div>
+
+<nav class="top">
+  <div class="logo">
+    <img src="img/bba-logo-horizontal.png" alt="Better Body Academy">
+  </div>
+  <div class="trust">Trusted by 3000 women</div>
+</nav>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span> Free Live Training · Women 35-60 · For A Limited Time</div>
+      <h1>The hormone fix for <span class="highlight">stubborn weight gain</span> <span class="serif">after 35.</span></h1>
+      <p class="hero-sub">A free 60-minute class for women who are doing everything right and still can't shift the weight. We'll show you <strong>what changed in your body after 35</strong>, why the old plans backfire, and the 3-pillar BBA framework that works in this stage of life.</p>
+
+      <div class="bullet-row">
+        <div class="bullet">
+          <span class="bullet-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <span>The <strong>3 hormones</strong> that quietly rewrite your body between 35 and 50, and how to tell which one is yours.</span>
+        </div>
+        <div class="bullet">
+          <span class="bullet-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <span>Why <strong>low-carb, high-cardio, and "more willpower"</strong> backfire after 35. And what works instead.</span>
+        </div>
+        <div class="bullet">
+          <span class="bullet-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <span>The <strong>3-pillar BBA framework</strong> our coaching team uses with women in this exact stage of life.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <div id="formView">
+        <h2 class="form-card-title">Save your seat For A Limited Time</h2>
+        <p class="form-card-sub">Spots are capped at 100 per cohort. Drop your details to lock yours in.</p>
+        <form id="seatForm" novalidate>
+          <div class="form-row split">
+            <div>
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Sarah" required autocomplete="given-name">
+            </div>
+            <div>
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone (for SMS reminders)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+61 400 000 000" required autocomplete="tel">
+          </div>
+          <label class="consent-row">
+            <input type="checkbox" id="smsConsent" name="smsConsent" checked>
+            <span>Yes, send me text reminders before and during the training. Reply STOP anytime to unsubscribe.</span>
+          </label>
+          <button type="submit" class="form-cta">
+            <span>Save My Seat</span>
+            <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </form>
+        <div class="form-meta">
+          <span class="form-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>100% private</span>
+          </span>
+          <span class="form-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>No spam, ever</span>
+          </span>
+          <span class="form-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>60 min</span>
+          </span>
+        </div>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h3>You're in.</h3>
+        <p>Check your email for your access link. We'll redirect you to your confirmation page in a moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="trust-item"><div class="trust-num">3000</div><div class="trust-label">Women coached</div></div>
+    <div class="trust-item"><div class="trust-num">6 YRS</div><div class="trust-label">Of client data</div></div>
+    <div class="trust-item"><div class="trust-num">94%</div><div class="trust-label">Kept the weight off</div></div>
+    <div class="trust-item"><div class="trust-num">10-20KGS</div><div class="trust-label">Average drop</div></div>
+  </div>
+
+  <div class="image-gallery">
+    <div class="gallery-item"><img src="img/client-01-jo-c.webp" alt="Jo C transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-02-erin-p.webp" alt="Erin P transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-03-linda-j.webp" alt="Linda J transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-04-amii-m.webp" alt="Amii M transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-05-keli-s.webp" alt="Keli S transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-06-pamela-b.webp" alt="Pamela B transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-07-kate-o.webp" alt="Kate O transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-08-natalie-t.webp" alt="Natalie T transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-09-olivia-l.webp" alt="Olivia L transformation" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/client-10-vikki-m.webp" alt="Vikki M transformation" loading="lazy"></div>
+  </div>
+
+  <section style="background:linear-gradient(180deg, transparent 0%, rgba(245,143,168,0.06) 50%, transparent 100%)">
+    <div class="section-inner">
+      <div class="section-eyebrow">What you'll learn</div>
+      <h2>Three pillars. <span class="serif">One hour.</span></h2>
+      <p class="section-sub">No fluff, no half-an-hour sales pitch at the end. Just the framework our coaching team uses with women in this exact stage of life.</p>
+
+      <div class="learn-grid">
+        <div class="learn-card">
+          <div class="learn-num">01</div>
+          <h3>Hormone-aware nutrition</h3>
+          <p>Why low-carb and high-protein backfire when your estrogen is shifting. Learn the carb-timing pattern that actually works for women 35-50.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-num">02</div>
+          <h3>Strength-led training</h3>
+          <p>Why hard cardio is making things worse and the 3-4 short sessions per week that build the muscle that protects your metabolism through the next decade.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-num">03</div>
+          <h3>Recovery + accountability</h3>
+          <p>Sleep, stress, and the coach in your corner who actually checks in. The pillar most women skip and most women need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="section-eyebrow">Real women, real results</div>
+      <h2>Hear it from <span class="serif">our clients.</span></h2>
+      <p class="section-sub">Short video stories from women who went through the BBA system. Same age range, same struggles, real outcomes.</p>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/1119250491?h=f5049fbe10&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Jules R"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Jules R</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/1119255678?h=99b2f1dbe2&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Vikki M"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Vikki M</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/646908475?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Kate O"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Kate O</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/646739278?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Linda M"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Linda M</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/680306648?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Erin W"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Erin W</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/680757461?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Lisa B"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Lisa B</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/681370613?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Kellie B"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Kellie B</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/692721277?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Julie R"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Julie R</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <iframe src="https://player.vimeo.com/video/699326588?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Michelle F"></iframe>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-name">Michelle F</p>
+            <p class="testimonial-meta">BBA client transformation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="final-cta">
+        <h2>Your seat is one click <span class="serif">away.</span></h2>
+        <p>Seats are capped at 100 per cohort. The training doesn't run every week. If you're tired of feeling stuck in your own body, lock in your spot.</p>
+        <a href="#formCard" class="final-btn" onclick="document.getElementById('firstName').focus();">
+          <span>Save my seat — free</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-disclaimer">
+      <strong>Important Legal Disclaimer:</strong> This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.<br><br>
+      The information on this website is for general informational purposes only. Better Body Academy makes no representation or warranty, express or implied. Your results will vary and depend on many factors including your background, experience, and effort. All transformation work entails commitment and consistent action.
+    </p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="copyright">&copy; Better Body Academy &middot; All rights reserved</div>
+  </div>
+</footer>
+
+<script>
+  // Optional: set this to an ISO date string to enable countdown messaging
+  var WEBINAR_DATE = null;  // e.g. '2026-06-12T19:00:00+10:00'
+
+  (function(){
+    var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/tZeRkQmpkCnvijoGCKi3/webhook-trigger/05b175dc-c6a1-480c-af15-06c5eab06367';
+
+    var alertDate = document.getElementById('alertBarDate');
+    function fmtDisplay(iso){
+      try {
+        var d = new Date(iso);
+        return d.toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric' }) +
+               ' at ' + d.toLocaleTimeString(undefined, { hour:'numeric', minute:'2-digit' });
+      } catch(e){ return ''; }
+    }
+    if (WEBINAR_DATE) {
+      var disp = fmtDisplay(WEBINAR_DATE);
+      if (disp && alertDate) alertDate.textContent = disp;
+    }
+
+    function fmtGhlDate(iso){
+      if (!iso) return '';
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return '';
+      var p = function(n){ return n < 10 ? '0' + n : '' + n; };
+      var hours = d.getHours();
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12; if (hours === 0) hours = 12;
+      return p(d.getMonth()+1) + '-' + p(d.getDate()) + '-' + d.getFullYear() +
+             ' ' + p(hours) + ':' + p(d.getMinutes()) + ' ' + ampm;
+    }
+
+    var form = document.getElementById('seatForm');
+    var formView = document.getElementById('formView');
+    var formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var firstName = document.getElementById('firstName').value.trim();
+      var lastName = document.getElementById('lastName').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var smsConsent = document.getElementById('smsConsent').checked;
+      if (!firstName || !lastName || !email || !phone) return;
+
+      var btn = form.querySelector('.form-cta');
+      btn.disabled = true;
+      btn.querySelector('span').textContent = 'Saving your seat...';
+
+      var payload = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        smsConsent: smsConsent,
+        source: 'save-your-seat-women-landing',
+        audience: 'women',
+        campaign: 'hormone-fix-monthly',
+        submittedAt: new Date().toISOString(),
+        webinarDate: fmtGhlDate(WEBINAR_DATE),
+        webinarDateIso: WEBINAR_DATE || '',
+        webinarStatus: WEBINAR_DATE ? 'scheduled' : 'tba'
+      };
+
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .catch(function(){ /* CORS-tolerant: show success regardless */ })
+      .finally(function(){
+        formView.style.display = 'none';
+        formSuccess.classList.add('show');
+        setTimeout(function(){
+          window.location.href = '../confirmation/?firstName=' + encodeURIComponent(firstName);
+        }, 1800);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
