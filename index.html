@@ -169,7 +169,7 @@
   .trust-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
 
   .image-gallery{
-    max-width:1280px;margin:0 auto;padding:0 32px 80px;
+    max-width:1280px;margin:0 auto;padding:0 32px 24px;
     display:grid;grid-template-columns:repeat(5,1fr);gap:16px;
   }
   .image-gallery .gallery-item{
@@ -256,6 +256,34 @@
   .testimonial-video .placeholder-label{
     font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--subtle);
   }
+  .testimonial-video .thumb-wrap{
+    position:absolute;inset:0;cursor:pointer;
+  }
+  .testimonial-video .thumb-wrap img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .testimonial-video .thumb-overlay{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:rgba(0,0,0,0.25);transition:background 0.2s;
+  }
+  .testimonial-video .thumb-wrap:hover .thumb-overlay{background:rgba(0,0,0,0.4)}
+  .testimonial-video .thumb-play{
+    width:64px;height:64px;border-radius:50%;
+    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 32px -8px rgba(243,35,161,0.55);
+    transition:transform 0.2s;
+  }
+  .testimonial-video .thumb-wrap:hover .thumb-play{transform:scale(1.1)}
+  .testimonial-video .thumb-play svg{width:24px;height:24px;color:#000;margin-left:3px}
+  .stats-bar{
+    background:#000;border-top:2px solid var(--pink);
+    padding:12px 16px;text-align:center;
+    font-size:13.5px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;
+    line-height:1.5;
+  }
+  .stats-bar .stats-name{color:#fff;display:block;margin-bottom:3px;font-size:14px;letter-spacing:0.15em}
+  .stats-bar .stats-nums{color:var(--pink)}
   .testimonial-body{padding:22px 24px 24px}
   .testimonial-name{font-size:16px;font-weight:700;letter-spacing:-0.01em;margin:0 0 4px;color:#fff}
   .testimonial-meta{font-size:12px;color:var(--pink);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin:0}
@@ -331,7 +359,6 @@
     <div>
       <div class="hero-eyebrow"><span class="dot"></span> Free Live Training · Women 35-60 · For A Limited Time</div>
       <h1>The hormone fix for <span class="highlight">stubborn weight gain</span> <span class="serif">after 35.</span></h1>
-      <p class="hero-sub">A free 60-minute class for women who are doing everything right and still can't shift the weight. We'll show you <strong>what changed in your body after 35</strong>, why the old plans backfire, and the 3-pillar BBA framework that works in this stage of life.</p>
 
       <div class="bullet-row">
         <div class="bullet">
@@ -352,7 +379,7 @@
     <div class="form-card" id="formCard">
       <div id="formView">
         <h2 class="form-card-title">For A Limited Time</h2>
-        <p class="form-card-sub">Spots are capped at 100 per cohort. Drop your details to lock yours in.</p>
+        <p class="form-card-sub">Only 100 spots available. Drop your details to lock yours in.</p>
         <form id="seatForm" novalidate>
           <div class="form-row split">
             <div>
@@ -372,10 +399,19 @@
             <label for="phone">Phone (for SMS reminders)</label>
             <input type="tel" id="phone" name="phone" placeholder="+61 400 000 000" required autocomplete="tel">
           </div>
-          <label class="consent-row">
-            <input type="checkbox" id="smsConsent" name="smsConsent" checked>
-            <span>Yes, send me text reminders before and during the training. Reply STOP anytime to unsubscribe.</span>
-          </label>
+
+          <div class="form-row">
+            <label for="instagram">Instagram Username *</label>
+            <input type="text" id="instagram" name="instagram" placeholder="e.g. yourname" required autocomplete="off">
+            <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">What is your INSTAGRAM profile handle / username so we can contact you with any follow up questions? (That's the name that comes after the www.instagram.com/ that displays on your profile)</p>
+          </div>
+
+          <div class="form-row">
+            <label for="backup_social">Facebook Name or TikTok Username *</label>
+            <input type="text" id="backup_social" name="backup_social" placeholder="e.g. Your Name or @yourname" required autocomplete="off">
+            <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">As a backup, please pop in either your FACEBOOK NAME or your TIKTOK USERNAME?</p>
+          </div>
+
           <button type="submit" class="form-cta">
             <span>Save My Seat</span>
             <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -407,10 +443,10 @@
   </section>
 
   <div class="trust-strip">
-    <div class="trust-item"><div class="trust-num">3000+</div><div class="trust-label">Women coached</div></div>
-    <div class="trust-item"><div class="trust-num">6 YRS</div><div class="trust-label">Of client data</div></div>
-    <div class="trust-item"><div class="trust-num">94%</div><div class="trust-label">Kept the weight off</div></div>
-    <div class="trust-item"><div class="trust-num">10-20KGS</div><div class="trust-label">Average drop</div></div>
+    <div class="trust-item"><div class="trust-num" id="stat1">0+</div><div class="trust-label">Women coached</div></div>
+    <div class="trust-item"><div class="trust-num" id="stat2">0 YRS</div><div class="trust-label">Of client data</div></div>
+    <div class="trust-item"><div class="trust-num" id="stat3">0%</div><div class="trust-label">Kept the weight off</div></div>
+    <div class="trust-item"><div class="trust-num" id="stat4">0-0KGS</div><div class="trust-label">Average drop</div></div>
   </div>
 
   <div class="image-gallery">
@@ -426,7 +462,8 @@
     <div class="gallery-item"><img src="img/client-10-vikki-m.webp" alt="Vikki M transformation" loading="lazy"></div>
   </div>
 
-  <section>
+
+  <section style="padding-top:8px">
     <div class="section-inner">
       <div class="section-eyebrow">What you'll learn</div>
       <h2>Three pillars. <span class="serif">One hour.</span></h2>
@@ -452,11 +489,11 @@
     </div>
   </section>
 
-  <section>
+  <section style="padding-top:16px">
     <div class="section-inner">
       <div class="section-eyebrow">Real women, real results</div>
       <h2>Hear it from <span class="serif">our clients.</span></h2>
-      <p class="section-sub">Short video stories from women who went through the BBA system. Same age range, same struggles, real outcomes.</p>
+      <p class="section-sub" style="white-space:nowrap">Short video stories from women who went through the BBA system. Same age range, same struggles, real outcomes.</p>
 
       <div class="testimonial-grid">
         <div class="testimonial-card">
@@ -464,67 +501,7 @@
             <iframe src="https://player.vimeo.com/video/1119250491?h=f5049fbe10&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Jules R"></iframe>
           </div>
           <div class="testimonial-body">
-            <p class="testimonial-name">Jules R</p>
-            <p class="testimonial-meta">BBA client transformation</p>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/1119255678?h=99b2f1dbe2&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Vikki M"></iframe>
-          </div>
-          <div class="testimonial-body">
-            <p class="testimonial-name">Vikki M</p>
-            <p class="testimonial-meta">BBA client transformation</p>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/646908475?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Kate O"></iframe>
-          </div>
-          <div class="testimonial-body">
-            <p class="testimonial-name">Kate O</p>
-            <p class="testimonial-meta">BBA client transformation</p>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/646739278?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Linda M"></iframe>
-          </div>
-          <div class="testimonial-body">
-            <p class="testimonial-name">Linda M</p>
-            <p class="testimonial-meta">BBA client transformation</p>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/680306648?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Erin W"></iframe>
-          </div>
-          <div class="testimonial-body">
-            <p class="testimonial-name">Erin W</p>
-            <p class="testimonial-meta">BBA client transformation</p>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/680757461?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Lisa B"></iframe>
-          </div>
-          <div class="testimonial-body">
-            <p class="testimonial-name">Lisa B</p>
-            <p class="testimonial-meta">BBA client transformation</p>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/681370613?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Kellie B"></iframe>
-          </div>
-          <div class="testimonial-body">
-            <p class="testimonial-name">Kellie B</p>
+            <p class="testimonial-name">Julie R</p>
             <p class="testimonial-meta">BBA client transformation</p>
           </div>
         </div>
@@ -541,26 +518,95 @@
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/699326588?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Michelle F"></iframe>
+            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/1119255678?h=99b2f1dbe2&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/68ca2b7f1ed44178d9644266.jpeg" alt="Vikki M">
+              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+            </div>
+          </div>
+          <div class="stats-bar"><span class="stats-name">Vikki M</span><span class="stats-nums">Weight: 15KG Loss &nbsp;·&nbsp; Waist: 24CM Loss</span></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/646908475?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21d9c1c1083d2ded80.jpeg" alt="Kate O">
+              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+            </div>
+          </div>
+          <div class="stats-bar"><span class="stats-name">Kate O</span><span class="stats-nums">Weight: 15KG Loss &nbsp;·&nbsp; Waist: 17CM Loss</span></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/646739278?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21f9fb83c4c7edf656.jpeg" alt="Linda J">
+              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+            </div>
+          </div>
+          <div class="stats-bar"><span class="stats-name">Linda J</span><span class="stats-nums">Weight: 15KG Loss &nbsp;·&nbsp; Waist: 11CM Loss</span></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/680306648?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21a9b8c1d2dbdb26bb.jpeg" alt="Erin P">
+              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+            </div>
+          </div>
+          <div class="stats-bar"><span class="stats-name">Erin P</span><span class="stats-nums">Weight: 19KG Loss &nbsp;·&nbsp; Waist: 19CM Loss</span></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/680757461?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21a9b8c176a4db26ba.jpeg" alt="Lisa B">
+              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+            </div>
+          </div>
+          <div class="stats-bar"><span class="stats-name">Lisa B</span><span class="stats-nums">Weight: 12KG Loss &nbsp;·&nbsp; Waist: 22CM Loss</span></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/681370613?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6888013b410f6e9f74b6ff0e.jpeg" alt="Kellie B">
+              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+            </div>
           </div>
           <div class="testimonial-body">
-            <p class="testimonial-name">Michelle F</p>
+            <p class="testimonial-name">Kell B</p>
             <p class="testimonial-meta">BBA client transformation</p>
           </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-video">
+            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/699326588?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/68c978ce7d86066807ca24a7.jpeg" alt="Michelle F">
+              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+            </div>
+          </div>
+          <div class="stats-bar"><span class="stats-name">Michelle F</span><span class="stats-nums">Weight: 10KG Loss &nbsp;·&nbsp; Waist: 12CM Loss</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
+
+  <section style="padding-top:16px">
     <div class="section-inner">
       <div class="final-cta">
-        <h2>Your seat is one click <span class="serif">away.</span></h2>
-        <p>Seats are capped at 100 per cohort. The training doesn't run every week. If you're tired of feeling stuck in your own body, lock in your spot.</p>
-        <a href="#formCard" class="final-btn" onclick="document.getElementById('firstName').focus();">
-          <span>Save my seat — free</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
+        <div style="display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:nowrap;">
+          <div style="text-align:left;">
+            <h2 style="margin-bottom:10px">Your seat is one click <span class="serif">away.</span></h2>
+            <p style="margin:0 0 20px;text-align:left;">Only 100 spots available. The training doesn't run every week. If you're tired of feeling stuck in your own body, lock in your spot.</p>
+            <a href="#formCard" class="final-btn" onclick="document.getElementById('firstName').focus();">
+              <span>Save my seat — free</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+          <img src="img/BADGE LOGO (Filled).png" alt="Better Body Academy" style="height:200px;width:auto;flex-shrink:0;">
+        </div>
       </div>
     </div>
   </section>
@@ -672,6 +718,63 @@
         }, 1800);
       });
     });
+  })();
+
+  // Click-to-play thumbnails
+  document.querySelectorAll('.thumb-wrap').forEach(function(wrap){
+    wrap.addEventListener('click', function(){
+      var src = wrap.getAttribute('data-src');
+      var iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;display:block;';
+      wrap.parentNode.replaceChild(iframe, wrap);
+    });
+  });
+
+  // Count-up animation for trust strip stats
+  (function(){
+    function countUp(el, from, to, suffix, duration) {
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(from + (to - from) * ease) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var observed = false;
+    var strip = document.querySelector('.trust-strip');
+    if (!strip) return;
+
+    var observer = new IntersectionObserver(function(entries){
+      if (observed) return;
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          observed = true;
+          countUp(document.getElementById('stat1'), 0, 3000, '+', 2000);
+          countUp(document.getElementById('stat2'), 0, 6, ' YRS', 1500);
+          countUp(document.getElementById('stat3'), 0, 94, '%', 1800);
+          // 10-20KGS: count both numbers simultaneously
+          var s4 = document.getElementById('stat4');
+          var start4 = null;
+          var dur4 = 2000;
+          (function tick4(ts){
+            if (!start4) start4 = ts;
+            var p = Math.min((ts - start4) / dur4, 1);
+            var e = 1 - Math.pow(1 - p, 3);
+            s4.textContent = Math.floor(e * 10) + '-' + Math.floor(e * 20) + 'KGS';
+            if (p < 1) requestAnimationFrame(tick4);
+          })(performance.now());
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(strip);
   })();
 </script>
 
