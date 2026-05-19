@@ -37,20 +37,20 @@
 
   .alert-bar{
     position:relative;z-index:2;
-    background:linear-gradient(90deg, var(--pink), var(--pink-glow));
-    color:#000;text-align:center;padding:10px 20px;
+    background:#000;
+    color:#fff;text-align:center;padding:10px 20px;
     font-size:13px;font-weight:700;letter-spacing:0.02em;
     display:flex;align-items:center;justify-content:center;gap:10px;
   }
   .alert-bar .live-dot{
-    width:8px;height:8px;border-radius:50%;background:#000;
-    animation:pulse 2s infinite;box-shadow:0 0 12px rgba(0,0,0,0.6);
+    width:8px;height:8px;border-radius:50%;background:#fff;
+    animation:pulse 2s infinite;box-shadow:0 0 12px rgba(255,255,255,0.6);
   }
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 
   nav.top{
     position:relative;z-index:2;max-width:1280px;margin:0 auto;
-    padding:22px 32px;display:flex;align-items:center;justify-content:space-between;
+    padding:14px 32px;display:flex;align-items:center;justify-content:space-between;
   }
   .logo{display:flex;align-items:center;gap:12px}
   .logo img{height:72px;width:auto;display:block;filter:drop-shadow(0 4px 14px rgba(243,35,161,0.3))}
@@ -58,8 +58,8 @@
 
   main{position:relative;z-index:1}
   .hero{
-    max-width:1280px;margin:0 auto;padding:40px 32px 60px;
-    display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;
+    max-width:1280px;margin:0 auto;padding:16px 32px 60px;
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:48px;align-items:start;
   }
   .hero-eyebrow{
     display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
@@ -78,9 +78,9 @@
   .bullet{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--muted);line-height:1.45}
   .bullet-check{
     flex-shrink:0;width:22px;height:22px;border-radius:50%;
-    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    background:#fff;
     display:inline-flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 12px -4px rgba(243,35,161,0.5);margin-top:2px;
+    margin-top:2px;
   }
   .bullet-check svg{width:12px;height:12px;color:#000}
   .bullet strong{color:#fff;font-weight:600}
@@ -125,10 +125,10 @@
   }
   .form-cta{
     width:100%;padding:18px 24px;
-    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
+    background:#fff;
     color:#000;border:0;border-radius:14px;
     font-family:'Inter',sans-serif;font-weight:800;font-size:16px;letter-spacing:0.01em;cursor:pointer;
-    box-shadow:0 12px 32px -8px rgba(243,35,161,0.55);
+    box-shadow:0 12px 32px -8px rgba(255,255,255,0.3);
     transition:all 0.25s;margin-top:8px;
     display:inline-flex;align-items:center;justify-content:center;gap:10px;
   }
@@ -162,8 +162,7 @@
   .trust-item:last-child{border-right:0}
   .trust-num{
     font-size:clamp(32px, 4vw, 48px);font-weight:800;letter-spacing:-0.03em;
-    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+    color:#fff;
     line-height:1;margin-bottom:8px;
   }
   .trust-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
@@ -292,7 +291,7 @@
   }
 
   .final-cta{
-    background:linear-gradient(135deg, var(--pink) 0%, var(--pink-glow) 100%);
+    background:#fff;
     border-radius:32px;padding:64px 48px;text-align:center;position:relative;overflow:hidden;
   }
   .final-cta::before{
@@ -300,9 +299,9 @@
     background:radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.22), transparent 50%);
     pointer-events:none;
   }
-  .final-cta h2{color:#fff;margin-bottom:18px}
-  .final-cta h2 .serif{color:#fff}
-  .final-cta p{color:#fff;font-size:17px;max-width:540px;margin:0 auto 30px;line-height:1.55}
+  .final-cta h2{color:#000;margin-bottom:18px}
+  .final-cta h2 .serif{color:#000}
+  .final-cta p{color:#000;font-size:17px;max-width:540px;margin:0 auto 30px;line-height:1.55}
   .final-btn{
     display:inline-flex;align-items:center;gap:10px;padding:18px 36px;border-radius:14px;
     background:#000;color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:0.01em;
@@ -423,25 +422,27 @@
               <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name">
             </div>
           </div>
-          <div class="form-row">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          <div class="form-row split">
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+            <div>
+              <label for="phone">Phone (for SMS reminders)</label>
+              <input type="tel" id="phone" name="phone" placeholder="+61 400 000 000" required autocomplete="tel">
+            </div>
           </div>
-          <div class="form-row">
-            <label for="phone">Phone (for SMS reminders)</label>
-            <input type="tel" id="phone" name="phone" placeholder="+61 400 000 000" required autocomplete="tel">
-          </div>
-
-          <div class="form-row">
-            <label for="instagram">Instagram Username *</label>
-            <input type="text" id="instagram" name="instagram" placeholder="e.g. yourname" required autocomplete="off">
-            <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">What is your INSTAGRAM profile handle / username so we can contact you with any follow up questions? (That's the name that comes after the www.instagram.com/ that displays on your profile)</p>
-          </div>
-
-          <div class="form-row">
-            <label for="backup_social">Facebook Name or TikTok Username *</label>
-            <input type="text" id="backup_social" name="backup_social" placeholder="e.g. Your Name or @yourname" required autocomplete="off">
-            <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">As a backup, please pop in either your FACEBOOK NAME or your TIKTOK USERNAME?</p>
+          <div class="form-row split">
+            <div>
+              <label for="instagram">Instagram Username *</label>
+              <input type="text" id="instagram" name="instagram" placeholder="e.g. yourname" required autocomplete="off">
+              <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">What is your INSTAGRAM profile handle / username so we can contact you with any follow up questions? (That's the name that comes after the www.instagram.com/ that displays on your profile)</p>
+            </div>
+            <div>
+              <label for="backup_social">Facebook Name or TikTok Username *</label>
+              <input type="text" id="backup_social" name="backup_social" placeholder="e.g. Your Name or @yourname" required autocomplete="off">
+              <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">As a backup, please pop in either your FACEBOOK NAME or your TIKTOK USERNAME?</p>
+            </div>
           </div>
 
           <button type="submit" class="form-cta">
@@ -530,7 +531,7 @@
       <div class="testimonial-grid">
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/1119250491?h=f5049fbe10&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Jules R"></iframe>
+            <iframe src="https://player.vimeo.com/video/1119250491?h=f5049fbe10&badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Jules R"></iframe>
           </div>
           <div class="testimonial-body">
             <p class="testimonial-name">Julie R</p>
@@ -540,7 +541,7 @@
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <iframe src="https://player.vimeo.com/video/692721277?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Julie R"></iframe>
+            <iframe src="https://player.vimeo.com/video/692721277?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Julie R"></iframe>
           </div>
           <div class="testimonial-body">
             <p class="testimonial-name">Julie R</p>
@@ -550,60 +551,42 @@
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/1119255678?h=99b2f1dbe2&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
-              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/68ca2b7f1ed44178d9644266.jpeg" alt="Vikki M">
-              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
-            </div>
+            <iframe src="https://player.vimeo.com/video/1119255678?h=99b2f1dbe2&badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Vikki M"></iframe>
           </div>
           <div class="stats-bar"><span class="stats-name">Vikki M</span><span class="stats-nums">Weight: 15KG Loss &nbsp;·&nbsp; Waist: 24CM Loss</span></div>
         </div>
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/646908475?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
-              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21d9c1c1083d2ded80.jpeg" alt="Kate O">
-              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
-            </div>
+            <iframe src="https://player.vimeo.com/video/646908475?badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Kate O"></iframe>
           </div>
           <div class="stats-bar"><span class="stats-name">Kate O</span><span class="stats-nums">Weight: 15KG Loss &nbsp;·&nbsp; Waist: 17CM Loss</span></div>
         </div>
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/646739278?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
-              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21f9fb83c4c7edf656.jpeg" alt="Linda J">
-              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
-            </div>
+            <iframe src="https://player.vimeo.com/video/646739278?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Linda J"></iframe>
           </div>
           <div class="stats-bar"><span class="stats-name">Linda J</span><span class="stats-nums">Weight: 15KG Loss &nbsp;·&nbsp; Waist: 11CM Loss</span></div>
         </div>
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/680306648?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
-              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21a9b8c1d2dbdb26bb.jpeg" alt="Erin P">
-              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
-            </div>
+            <iframe src="https://player.vimeo.com/video/680306648?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Erin P"></iframe>
           </div>
           <div class="stats-bar"><span class="stats-name">Erin P</span><span class="stats-nums">Weight: 19KG Loss &nbsp;·&nbsp; Waist: 19CM Loss</span></div>
         </div>
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/680757461?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
-              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6887ff21a9b8c176a4db26ba.jpeg" alt="Lisa B">
-              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
-            </div>
+            <iframe src="https://player.vimeo.com/video/680757461?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Lisa B"></iframe>
           </div>
           <div class="stats-bar"><span class="stats-name">Lisa B</span><span class="stats-nums">Weight: 12KG Loss &nbsp;·&nbsp; Waist: 22CM Loss</span></div>
         </div>
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/681370613?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
-              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/6888013b410f6e9f74b6ff0e.jpeg" alt="Kellie B">
-              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
-            </div>
+            <iframe src="https://player.vimeo.com/video/681370613?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Kell B"></iframe>
           </div>
           <div class="testimonial-body">
             <p class="testimonial-name">Kell B</p>
@@ -613,10 +596,7 @@
 
         <div class="testimonial-card">
           <div class="testimonial-video">
-            <div class="thumb-wrap" data-src="https://player.vimeo.com/video/699326588?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479">
-              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/tZeRkQmpkCnvijoGCKi3/media/68c978ce7d86066807ca24a7.jpeg" alt="Michelle F">
-              <div class="thumb-overlay"><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
-            </div>
+            <iframe src="https://player.vimeo.com/video/699326588?badge=0&autopause=0&player_id=0&app_id=58479" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Michelle F"></iframe>
           </div>
           <div class="stats-bar"><span class="stats-name">Michelle F</span><span class="stats-nums">Weight: 10KG Loss &nbsp;·&nbsp; Waist: 12CM Loss</span></div>
         </div>
@@ -752,18 +732,6 @@
     });
   })();
 
-  // Click-to-play thumbnails
-  document.querySelectorAll('.thumb-wrap').forEach(function(wrap){
-    wrap.addEventListener('click', function(){
-      var src = wrap.getAttribute('data-src');
-      var iframe = document.createElement('iframe');
-      iframe.src = src;
-      iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-      iframe.allowFullscreen = true;
-      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;display:block;';
-      wrap.parentNode.replaceChild(iframe, wrap);
-    });
-  });
 
   // Count-up animation for trust strip stats
   (function(){
