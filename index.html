@@ -27,7 +27,7 @@
     --success:#22C55E;
   }
   *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html,body{margin:0;padding:0;overflow-x:hidden}
   body{
     font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
     background:var(--bg);color:var(--ink);line-height:1.6;
@@ -96,7 +96,7 @@
     -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
   }
-  .form-card-title{font-weight:800;font-size:22px;letter-spacing:-0.02em;margin:0 0 6px;line-height:1.2}
+  .form-card-title{font-weight:800;font-size:clamp(15px,1.8vw,22px);letter-spacing:-0.02em;margin:0 0 6px;line-height:1.2;white-space:nowrap}
   .form-card-sub{font-size:14px;color:var(--muted);margin:0 0 20px;line-height:1.5}
   .form-row{margin-bottom:14px}
   .form-row.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -205,7 +205,7 @@
   .section-eyebrow::before{content:'';width:24px;height:1px;background:var(--pink)}
   h2{font-weight:800;font-size:clamp(28px, 3.8vw, 44px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 16px}
   h2 .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#fff}
-  .section-sub{font-size:17px;color:var(--muted);max-width:900px;margin:0 0 48px;line-height:1.55;white-space:nowrap}
+  .section-sub{font-size:17px;color:var(--muted);max-width:900px;margin:0 0 48px;line-height:1.55}
 
   .learn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .learn-card{
@@ -323,7 +323,7 @@
 
   @media (max-width:900px){
     .hero{grid-template-columns:1fr;padding:24px 20px 60px;gap:40px}
-    .hero h1{font-size:36px}
+    .hero h1{font-size:clamp(20px,5.5vw,36px)}
     .trust-strip{padding:0 20px 60px;grid-template-columns:repeat(2,1fr);gap:0}
     .trust-item{border-right:0;border-bottom:1px solid var(--line);padding:20px}
     .trust-item:nth-child(odd){border-right:1px solid var(--line)}
@@ -336,7 +336,7 @@
   }
 
   @media (max-width:768px){
-    h1{font-size:clamp(28px,8vw,36px)}
+    h1{font-size:clamp(20px,5.5vw,36px)}
     h2{font-size:clamp(22px,6vw,32px)}
     .hero-sub{font-size:16px}
     .logo img{height:56px}
@@ -351,7 +351,7 @@
   @media (max-width:500px){
     .alert-bar{font-size:11.5px;padding:9px 16px}
     .form-card{padding:24px 20px}
-    .hero h1{font-size:28px}
+    .hero h1{font-size:clamp(14px,3.8vw,22px)}
     .form-row.split{grid-template-columns:1fr}
     .stats-bar .stats-nums{white-space:normal;letter-spacing:0}
     .final-cta-inner{
@@ -386,7 +386,7 @@
 
   <section class="hero">
     <div>
-      <div class="hero-eyebrow"><span class="dot"></span> Free Live Training · Women 35-60 · For A Limited Time</div>
+      <div class="hero-eyebrow"><span class="dot"></span> Free Live Training · Women 35-60</div>
       <h1>The hormone fix for <span class="highlight">stubborn weight gain</span> <span class="serif">after 35.</span></h1>
 
       <div class="bullet-row">
@@ -407,7 +407,7 @@
 
     <div class="form-card" id="formCard">
       <div id="formView">
-        <h2 class="form-card-title">For A Limited Time</h2>
+        <h2 class="form-card-title">Save Your Seat For A Limited Time</h2>
         <p class="form-card-sub">Only 100 spots available. Drop your details to lock yours in.</p>
         <form id="seatForm" novalidate>
           <div class="form-row split">
