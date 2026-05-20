@@ -61,6 +61,9 @@
     max-width:1280px;margin:0 auto;padding:16px 32px 60px;
     display:grid;grid-template-columns:0.8fr 1.2fr;gap:48px;align-items:start;
   }
+  .hero-header{grid-column:1;grid-row:1;}
+  .hero-bullets{grid-column:1;grid-row:2;}
+  .hero .form-card{grid-column:2;grid-row:1/3;}
   .hero-eyebrow{
     display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
     background:rgba(243,35,161,0.12);border:1px solid rgba(243,35,161,0.35);
@@ -75,12 +78,12 @@
   .hero-sub strong{color:#fff;font-weight:600}
 
   .bullet-row{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
-  .bullet{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--muted);line-height:1.45}
+  .bullet{display:flex;align-items:flex-start;gap:12px;font-size:18px;color:var(--muted);line-height:1.5}
   .bullet-check{
     flex-shrink:0;width:22px;height:22px;border-radius:50%;
-    background:#fff;
+    background:linear-gradient(135deg, var(--pink), var(--pink-glow));
     display:inline-flex;align-items:center;justify-content:center;
-    margin-top:2px;
+    box-shadow:0 4px 12px -4px rgba(243,35,161,0.5);margin-top:2px;
   }
   .bullet-check svg{width:12px;height:12px;color:#000}
   .bullet strong{color:#fff;font-weight:600}
@@ -136,6 +139,19 @@
   .form-cta:active{transform:translateY(0)}
   .form-cta .arrow{transition:transform 0.25s}
   .form-cta:hover .arrow{transform:translateX(4px)}
+  .hero-mobile-cta{
+    display:none;padding:18px 24px;
+    background:#fff;color:#000;border:0;border-radius:14px;
+    font-family:'Inter',sans-serif;font-weight:800;font-size:16px;letter-spacing:0.01em;
+    text-decoration:none;cursor:pointer;
+    align-items:center;justify-content:center;gap:10px;
+    margin:20px auto 0;
+  }
+  .hero-mobile-cta .arrow{transition:transform 0.25s}
+  .hero-mobile-cta:hover .arrow{transform:translateX(4px)}
+  @media (max-width:900px){
+    .hero-mobile-cta{display:inline-flex;}
+  }
   .form-meta{
     margin-top:18px;display:flex;align-items:center;justify-content:center;gap:14px;
     font-size:11px;color:var(--subtle);flex-wrap:wrap;
@@ -205,7 +221,8 @@
   .section-eyebrow::before{content:'';width:24px;height:1px;background:var(--pink)}
   h2{font-weight:800;font-size:clamp(28px, 3.8vw, 44px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 16px}
   h2 .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#fff}
-  .section-sub{font-size:17px;color:var(--muted);max-width:900px;margin:0 0 48px;line-height:1.55}
+  .section-sub{font-size:17px;color:var(--muted);max-width:900px;margin:0 0 48px;line-height:1.55;white-space:nowrap}
+  @media (max-width:900px){.section-sub{white-space:normal;font-size:15px;}}
 
   .learn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .learn-card{
@@ -323,7 +340,10 @@
 
   @media (max-width:900px){
     .hero{grid-template-columns:1fr;padding:24px 20px 60px;gap:40px}
-    .hero h1{font-size:clamp(20px,5.5vw,36px)}
+    .hero-header{order:1;grid-column:1;grid-row:auto;}
+    .hero .form-card{order:2;grid-column:1;grid-row:auto;}
+    .hero-bullets{order:3;grid-column:1;grid-row:auto;}
+    .hero h1{font-size:50px}
     .trust-strip{padding:0 20px 60px;grid-template-columns:repeat(2,1fr);gap:0}
     .trust-item{border-right:0;border-bottom:1px solid var(--line);padding:20px}
     .trust-item:nth-child(odd){border-right:1px solid var(--line)}
@@ -349,9 +369,9 @@
   }
 
   @media (max-width:500px){
-    .alert-bar{font-size:11.5px;padding:9px 16px}
+    .alert-bar{font-size:14px;padding:12px 16px}
     .form-card{padding:24px 20px}
-    .hero h1{font-size:clamp(14px,3.8vw,22px)}
+    .hero h1{font-size:clamp(32px,10vw,50px)}
     .form-row.split{grid-template-columns:1fr}
     .stats-bar .stats-nums{white-space:normal;letter-spacing:0}
     .final-cta-inner{
@@ -385,10 +405,15 @@
 <main>
 
   <section class="hero">
-    <div style="text-align:center;">
+    <div class="hero-header" style="text-align:center;">
       <div class="hero-eyebrow"><span class="dot"></span> Free Live Training · Women 35-60</div>
       <h1>The hormone fix for <span class="highlight">stubborn weight gain</span> <span class="serif">after 35.</span></h1>
+      <a href="#formCard" class="hero-mobile-cta" onclick="document.getElementById('firstName').focus();">
+        <span>Save My Seat</span>
+      </a>
+    </div>
 
+    <div class="hero-bullets">
       <div class="bullet-row">
         <div class="bullet">
           <span class="bullet-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
@@ -434,12 +459,10 @@
             <div>
               <label for="instagram">Instagram Username *</label>
               <input type="text" id="instagram" name="instagram" placeholder="e.g. yourname" required autocomplete="off">
-              <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">What is your INSTAGRAM profile handle / username so we can contact you with any follow up questions? (That's the name that comes after the www.instagram.com/ that displays on your profile)</p>
             </div>
             <div>
               <label for="backup_social">Facebook Name or TikTok Username *</label>
               <input type="text" id="backup_social" name="backup_social" placeholder="e.g. Your Name or @yourname" required autocomplete="off">
-              <p style="font-size:12px;color:var(--subtle);margin:7px 0 0;line-height:1.5;">As a backup, please pop in either your FACEBOOK NAME or your TIKTOK USERNAME?</p>
             </div>
           </div>
 
